@@ -1,4 +1,20 @@
-import { Pressable } from 'react-native';
+/**
+ * Header
+ *
+ * 💡 En-tête global de l'application (affiché en haut de l'écran).
+ * Affiche :
+ * - Le logo de l'app + le titre (cliquable pour retourner à l'accueil)
+ * - Une icône profil (accès à la page utilisateur)
+ * - Un bouton de déconnexion (affiché uniquement à partir de la taille tablette)
+ *
+ * Props :
+ * @param title (optionnel) Titre affiché à côté du logo. Par défaut : "RAP App"
+ *
+ * Utilisation typique :
+ * <Header title="Tableau de bord" />
+ */
+
+import { Pressable, Image } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { Box, Text, useTheme } from '@/src/theme';
@@ -23,11 +39,18 @@ export default function Header({ title = 'RAP App' }: HeaderProps) {
       borderBottomWidth={1}
       borderColor="grayLight"
     >
-      {/* 🔗 Titre cliquable : retour à l'accueil */}
+      {/* 🔗 Logo + Titre cliquable */}
       <Pressable onPress={() => router.replace('/')}>
-        <Text variant="header">{title}</Text>
+        <Box flexDirection="row" alignItems="center">
+          <Image
+            source={require('@/assets/images/logo.png')}
+            style={{ width: 28, height: 28, marginRight: 8, resizeMode: 'contain' }}
+          />
+          <Text variant="header">{title}</Text>
+        </Box>
       </Pressable>
 
+      {/* 👤 Profil + 🔓 Logout */}
       <Box flexDirection="row" alignItems="center" gap="s">
         {/* Profil */}
         <Pressable onPress={() => router.push('/user')}>
@@ -35,10 +58,7 @@ export default function Header({ title = 'RAP App' }: HeaderProps) {
         </Pressable>
 
         {/* Logout visible uniquement à partir de tablette */}
-        <Box
-          width={{ phone: 0, tablet: 'auto' }}
-          overflow="hidden"
-        >
+        <Box width={{ phone: 0, tablet: 'auto' }} overflow="hidden">
           <LogoutButton />
         </Box>
       </Box>

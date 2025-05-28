@@ -1,9 +1,18 @@
-import { Box, Text } from '@/src/theme';
+// app/(screen)/screen/vae_jury/accueil_jury.tsx
+import ScreenWrapper from '@/src/components/ScreenWrapper';
+import { Text } from '@/src/theme';
 
 export default function JuryHome() {
+  const handleRefresh = () => {
+    console.log('⟳ Rafraîchissement de l’accueil jury...');
+    // Rechargement éventuel des données liées aux jurys
+  };
+
   return (
-    <Box flex={1} backgroundColor="mainBackground" padding="l">
-      <Text variant="header">Accueil Jury</Text>
-    </Box>
+    <ScreenWrapper title="Accueil Jury" onRefresh={handleRefresh}>
+      <Text variant="body">
+        Page d&apos;accueil dédiée à la gestion des jurys.
+      </Text>
+    </ScreenWrapper>
   );
 }

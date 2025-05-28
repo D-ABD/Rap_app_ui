@@ -1,9 +1,18 @@
-import { Box, Text } from '@/src/theme';
+// app/(screen)/screen/parametres/commentaires.tsx
+import ScreenWrapper from '@/src/components/ScreenWrapper';
+import { Text } from '@/src/theme';
 
 export default function Commentaires() {
+  const handleRefresh = () => {
+    console.log('⟳ Rafraîchissement des commentaires...');
+    // Appel API ou mise à jour ici
+  };
+
   return (
-    <Box flex={1} backgroundColor="mainBackground" padding="l">
-      <Text variant="header">Commentaires</Text>
-    </Box>
+    <ScreenWrapper title="Commentaires" onRefresh={handleRefresh}>
+      <Text variant="body">
+        Consultation et gestion des commentaires utilisateurs.
+      </Text>
+    </ScreenWrapper>
   );
 }

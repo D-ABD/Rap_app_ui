@@ -1,9 +1,18 @@
-import { Box, Text } from '@/src/theme';
+// app/(screen)/screen/parametres/evenements.tsx
+import ScreenWrapper from '@/src/components/ScreenWrapper';
+import { Text } from '@/src/theme';
 
-export default function evenements() {
+export default function Evenements() {
+  const handleRefresh = () => {
+    console.log('⟳ Rafraîchissement des évènements...');
+    // Lancer une requête API si besoin
+  };
+
   return (
-    <Box flex={1} backgroundColor="mainBackground" padding="l">
-      <Text variant="header">Evenements</Text>
-    </Box>
+    <ScreenWrapper title="Évènements" onRefresh={handleRefresh}>
+      <Text variant="body">
+        Gestion et suivi des évènements liés à l&apos;application.
+      </Text>
+    </ScreenWrapper>
   );
 }

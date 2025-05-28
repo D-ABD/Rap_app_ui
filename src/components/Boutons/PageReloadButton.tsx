@@ -1,3 +1,22 @@
+/**
+ * ReturnButton.tsx
+ *
+ * 🔙 Bouton de retour basique.
+ * Utilise `navigation.goBack()` pour revenir à l’écran précédent dans la pile de navigation.
+ *
+ * ✅ Fonctionne uniquement si la pile contient un écran précédent.
+ * À utiliser dans les écrans où un retour est toujours possible.
+ *
+ * Exemple d'utilisation :
+ * ```tsx
+ * <ReturnButton />
+ * ```
+ *
+ * 📝 Remarque :
+ * Pour une version plus robuste avec un `fallbackTo` (en cas de pile vide),
+ * utilise la version améliorée de ce bouton dans les écrans accessibles depuis des tabs ou liens directs.
+ */
+
 import React from 'react';
 import { Pressable } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';

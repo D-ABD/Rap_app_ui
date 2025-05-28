@@ -1,9 +1,18 @@
-import { Box, Text } from '@/src/theme';
+// app/(screen)/screen/parametres/type_offres.tsx
+import ScreenWrapper from '@/src/components/ScreenWrapper';
+import { Text } from '@/src/theme';
 
 export default function TypeOffres() {
+  const handleRefresh = () => {
+    console.log('⟳ Rafraîchissement des types d’offres...');
+    // Ajoute ici un appel API si nécessaire
+  };
+
   return (
-    <Box flex={1} backgroundColor="mainBackground" padding="l">
-      <Text variant="header">Types Offres</Text>
-    </Box>
+    <ScreenWrapper title="Types d'offres" onRefresh={handleRefresh}>
+      <Text variant="body">
+        Gestion des types d&apos;offres proposés dans le cadre du programme.
+      </Text>
+    </ScreenWrapper>
   );
 }

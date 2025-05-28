@@ -1,9 +1,18 @@
-import { Box, Text } from '@/src/theme';
+// app/(screen)/screen/parametres/objectifs_jury_vae.tsx
+import ScreenWrapper from '@/src/components/ScreenWrapper';
+import { Text } from '@/src/theme';
 
 export default function ObjectifsJuryVae() {
+  const handleRefresh = () => {
+    console.log('⟳ Rafraîchissement des objectifs jury & VAE...');
+    // Tu peux ici déclencher un appel API si besoin
+  };
+
   return (
-    <Box flex={1} backgroundColor="mainBackground" padding="l">
-      <Text variant="header">Objectifs jury et vae</Text>
-    </Box>
+    <ScreenWrapper title="Objectifs jury & VAE" onRefresh={handleRefresh}>
+      <Text variant="body">
+        Définir et suivre les objectifs associés aux jurys et aux démarches VAE.
+      </Text>
+    </ScreenWrapper>
   );
 }

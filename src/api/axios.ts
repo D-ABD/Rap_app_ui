@@ -1,3 +1,26 @@
+/**
+ * api.ts (instance Axios configurée)
+ *
+ * 💡 Ce fichier centralise la configuration d’Axios pour toutes les requêtes API.
+ *
+ * Fonctionnalités principales :
+ * - Initialise Axios avec `baseURL` dynamique via `expo-constants`
+ * - Injecte automatiquement le token JWT d’accès dans chaque requête
+ * - Gère le rafraîchissement automatique du token (`/token/refresh/`) en cas d’expiration
+ * - Réessaye la requête initiale si un nouveau token est obtenu avec succès
+ * - Supprime les tokens si le rafraîchissement échoue
+ *
+ * 📦 Modules externes :
+ * - `expo-constants` pour accéder à l’`API_URL` définie dans `app.json`
+ * - `AsyncStorage` pour stocker et récupérer les tokens localement
+ * - `storage.ts` pour encapsuler la gestion des tokens (`getTokens`, `storeTokens`, `clearTokens`)
+ *
+ * 🚨 Important :
+ * - Le champ `originalRequest._retry` évite les boucles infinies de rafraîchissement
+ * - Le header Authorization est mis à jour manuellement avant de relancer la requête
+ * - L’intercepteur de réponse est la clé pour maintenir une session utilisateur fluide
+ */
+
 import axios from 'axios';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';

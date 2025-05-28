@@ -1,9 +1,31 @@
+/**
+ * LoginScreen
+ *
+ * 💡 Écran de connexion (authentification) pour l’utilisateur.
+ *
+ * Fonctionnalités :
+ * - Affiche un formulaire avec email + mot de passe
+ * - Gère l’état local (email, mot de passe, chargement, erreurs)
+ * - Appelle `login()` depuis `AuthContext` pour authentifier l’utilisateur
+ * - Redirige vers `/dashboard` si la connexion est réussie
+ * - Affiche un toast de confirmation ou une erreur si échec
+ *
+ * Technologies utilisées :
+ * - React Native : TextInput, Pressable, ActivityIndicator
+ * - Expo Router : `useRouter()` pour la redirection
+ * - AuthContext : `useAuth()` pour déclencher le login
+ * - Restyle : `Box`, `Text` pour le design cohérent
+ * - Toasts : `react-native-toast-message` pour les retours utilisateur
+ *
+ * 📌 Fichier à placer dans `app/(auth)/login.tsx`
+ */
+
 import { useState } from 'react';
 import { useRouter } from 'expo-router';
 import { useAuth } from '@/src/contexts/AuthContext';
 import { Box, Text } from '@/src/theme';
 import { TextInput, Pressable, ActivityIndicator } from 'react-native';
-import Toast from 'react-native-toast-message'; // ✅ Ajout du toast
+import Toast from 'react-native-toast-message';
 
 export default function LoginScreen() {
   const { login } = useAuth();
@@ -23,7 +45,7 @@ export default function LoginScreen() {
         type: 'success',
         text1: 'Connexion réussie',
       });
-      router.replace('/dashboard'); // redirection après login
+      router.replace('/dashboard');
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);

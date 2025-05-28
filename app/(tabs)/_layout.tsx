@@ -1,3 +1,31 @@
+/**
+ * TabsLayout
+ *
+ * 💡 Layout principal pour la navigation à onglets (Tab bar) de l'application.
+ * Ce fichier s'applique à toutes les routes enfants de `(tabs)` : `dashboard`, `centre`, `user`, `parametres`, etc.
+ *
+ * Fonctionnalités :
+ * - Vérifie si l’utilisateur est authentifié avant de rendre les onglets
+ * - Redirige vers `/welcome` si l’utilisateur n’est pas connecté
+ * - Applique dynamiquement le thème clair ou sombre selon les préférences du système
+ * - Affiche un `Header` personnalisé au-dessus de la tab bar
+ * - Configure le style et les icônes des onglets avec `expo-router` + `react-navigation`
+ *
+ * 📦 Structure typique :
+ * - app/
+ *   - (tabs)/
+ *     - _layout.tsx ← (ce fichier)
+ *     - dashboard.tsx
+ *     - centre.tsx
+ *     - user.tsx
+ *     - parametres.tsx
+ *
+ * 🛑 Important :
+ * - Le `Header` est rendu manuellement ici (au-dessus de `<Tabs />`)
+ * - `headerShown: false` est nécessaire pour éviter un double en-tête
+ * - Les icônes utilisent `FontAwesome5`
+ */
+
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import { useAuth } from '@/src/contexts/AuthContext';
