@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+# RAP App UI
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Application mobile et web construite avec **Expo** et **React Native**, connectée à un backend Django via des **tokens JWT**. Interface modulaire, responsive et thématisée (clair/sombre) pour accompagner le projet RAP.
 
-## Get started
+## 🔧 Stack technique
 
-1. Install dependencies
+- **Expo + Expo Router** : navigation déclarative et multi-plateforme (iOS, Android, Web)
+- **React Native + Typescript**
+- **Restyle** : Design system avec thème clair / sombre
+- **Axios** : communication avec l'API Django (authentification JWT)
+- **AsyncStorage** : persistance des tokens
+- **Context API** : gestion globale de l'authentification et du thème
+- **Toast** : feedback utilisateur
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 🗂️ Structure du projet
 
-   ```bash
-   npx expo start
-   ```
+# RAP App UI
 
-In the output, you'll find options to open the app in a
+Application mobile et web construite avec **Expo** et **React Native**, connectée à un backend Django via des **tokens JWT**. Interface modulaire, responsive et thématisée (clair/sombre) pour accompagner le projet RAP.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🔧 Stack technique
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Expo + Expo Router** : navigation déclarative et multi-plateforme (iOS, Android, Web)
+- **React Native + Typescript**
+- **Restyle** : Design system avec thème clair / sombre
+- **Axios** : communication avec l'API Django (authentification JWT)
+- **AsyncStorage** : persistance des tokens
+- **Context API** : gestion globale de l'authentification et du thème
+- **Toast** : feedback utilisateur
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 🗂️ Structure du projet
 
+rap_app_ui/
+├── app/ # Routes (expo-router)
+│ ├── (tabs)/ # Onglets principaux (Dashboard, Paramètres, etc.)
+│ ├── screen/ # Autres écrans secondaires
+│ └── _layout.tsx # Layout racine
+├── src/
+│ ├── api/ # Axios + gestion des tokens
+│ ├── components/ # Header, boutons, wrapper, etc.
+│ ├── contexts/ # AuthContext, ThemeContext
+│ ├── services/ # Appels à l'API
+│ ├── theme/ # Thème Restyle (clair/sombre)
+│ └── types/ # Types globaux
+├── app.json # Configuration (API_URL, nom, etc.)
+└── tsconfig.json # Paths personnalisés
+
+
+---
+
+## ✅ Fonctionnalités
+
+- Authentification par email + mot de passe
+- Récupération automatique du token en mémoire
+- Refresh automatique du token expiré
+- Interface **responsive** avec **mode sombre/clair**
+- Header réutilisable avec :
+  - Retour
+  - Profil utilisateur
+  - Déconnexion
+  - Rafraîchissement
+- Écrans de gestion : paramètres, centre, utilisateur, etc.
+- Composant `ScreenWrapper` pour un layout homogène
+
+---
+
+## 🚀 Lancer le projet
+
+### Prérequis :
+- Node.js ≥ 18
+- Expo CLI : `npm install -g expo-cli`
+- Backend Django en local ou distant
+
+### Lancer l'app :
 ```bash
-npm run reset-project
-```
+git clone https://github.com/ton-utilisateur/rap_app_ui.git
+cd rap_app_ui
+npm install
+npm start
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+✍️ Auteur
+Projet développé par ABD pour le programme RAP — 2025.
