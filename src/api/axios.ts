@@ -1,5 +1,5 @@
 /**
- * api.ts (instance Axios configurée)
+ * axios.ts (instance Axios configurée)
  *
  * 💡 Ce fichier centralise la configuration d’Axios pour toutes les requêtes API.
  *

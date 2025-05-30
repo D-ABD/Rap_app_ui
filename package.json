@@ -42,13 +42,17 @@
     "react-native-svg": "15.11.2",
     "react-native-toast-message": "^2.3.0",
     "react-native-web": "~0.20.0",
-    "react-native-webview": "13.13.5"
+    "react-native-webview": "13.13.5",
+    "ts-morph": "^26.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
+    "orval": "^7.9.0",
+    "ts-prune": "^0.10.3",
+    "tsx": "^4.19.4",
     "typescript": "~5.8.3"
   },
   "private": true
